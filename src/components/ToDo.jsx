@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ToDo = () => {
+const ToDo = ( { toDo } ) => {
   return (
-    <div>ToDo</div>
+    <div>{toDo}</div>
   )
 }
 

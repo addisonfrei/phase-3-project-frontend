@@ -8,20 +8,20 @@ import ToDoContainer from './ToDoContainer';
 
 
 const App = () => {
-    const [test, setTest] = useState('')
+    const [toDoList, setToDoList] = useState(["walk dog", "wash dishes"])
     //Fetch data from database
-    useEffect(() => {
-        fetch('http://localhost:9292/')
-         .then(r => r.json())
-         .then(setTest)
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:9292/')
+    //      .then(r => r.json())
+    //      .then(setToDoList)
+    // }, [])
 
     return (
         <Router>
             <NavBar />
             <Routes>
                 <Route path='/' element={ <Home /> }/>
-                <Route path='/view' element={ <ToDoContainer /> }/>
+                <Route path='/view' element={ <ToDoContainer toDoList={toDoList}/> }/>
                 <Route path='/add' element={ <CreateToDo /> }/>
             </Routes>
         </Router>
