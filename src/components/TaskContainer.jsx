@@ -11,16 +11,19 @@ const TaskContainer = ( { taskList } ) => {
 
   return (
     <div>
-      <h1>Task List</h1>
-      <ul className='Task'>
-        <li>
-          <strong>Task</strong>
-          <strong>Category</strong>
-          <strong>Due By</strong>
-          <strong>Completed?</strong>
-        </li>
-        {task}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Category</th>
+            <th>Due By</th>
+            <th>Completed?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {task}
+        </tbody>  
+      </table>
     </div>
   )
 }

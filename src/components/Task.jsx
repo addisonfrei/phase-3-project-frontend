@@ -12,13 +12,13 @@ const Task = ( { task } ) => {
     
   }
   return (
-    <li>
-      <span>{task.task}</span>
-      <span>{task.category}</span>
-      <span>{task.dueDate}</span>
-      <input style={{marginRight: "100px"}} type='checkbox' onClick={handleCheck}/>
-      <button onClick={handleDelete}>Delete</button>
-    </li>
+    <tr>
+      <td>{task.task}</td>
+      <td>{task.category}</td>
+      <td>{task.dueDate}</td>
+      <td><input  type='checkbox' onClick={handleCheck}/></td>
+      <td><button onClick={handleDelete}>Delete</button></td>
+    </tr>
   )
 }
 

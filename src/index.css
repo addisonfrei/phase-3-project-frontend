@@ -12,13 +12,12 @@ code {
     monospace;
 }
 
-.Task li {
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 1rem;
-  align-items: center;
-  border-radius: 4px;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
 }
 
+tr:nth-child(even) {
+  background-color: #f4efef;
+}
