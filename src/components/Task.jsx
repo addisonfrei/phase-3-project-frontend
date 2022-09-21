@@ -1,25 +1,25 @@
 import React from 'react'
 
-const ToDo = ( { toDo, onCheck } ) => {
+const Task = ( { task } ) => {
   
   // DELETE request to DB
   function handleDelete(e) {
-    console.log(toDo.id)
+    console.log(task.id)
   }
   // PATCH request to DB
   function handleCheck() {
-    console.log(toDo)
+    console.log(task)
     
   }
   return (
     <li>
-      <span>{toDo.task}</span>
-      <span>{toDo.category}</span>
-      <span>{toDo.dueDate}</span>
+      <span>{task.task}</span>
+      <span>{task.category}</span>
+      <span>{task.dueDate}</span>
       <input style={{marginRight: "100px"}} type='checkbox' onClick={handleCheck}/>
       <button onClick={handleDelete}>Delete</button>
     </li>
   )
 }
 
-export default ToDo
+export default Task

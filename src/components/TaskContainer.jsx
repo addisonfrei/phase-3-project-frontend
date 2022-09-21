@@ -1,9 +1,9 @@
 import React from 'react'
-import ToDo from './ToDo'
+import Task from './Task'
 
-const ToDoContainer = ( { toDoList } ) => {
-  const toDo = toDoList.map((toDo, index) => (
-    <ToDo key={index} toDo={toDo} />
+const TaskContainer = ( { taskList } ) => {
+  const task = taskList.map((task, index) => (
+    <Task key={index} task={task} />
   ))
 
   // Add filter functionality to filter by all or specific category
@@ -12,17 +12,17 @@ const ToDoContainer = ( { toDoList } ) => {
   return (
     <div>
       <h1>Task List</h1>
-      <ul className='ToDo'>
+      <ul className='Task'>
         <li>
           <strong>Task</strong>
           <strong>Category</strong>
           <strong>Due By</strong>
           <strong>Completed?</strong>
         </li>
-        {toDo}
+        {task}
       </ul>
     </div>
   )
 }
 
-export default ToDoContainer
+export default TaskContainer

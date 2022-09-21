@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import '../App.css';
-import CreateToDo from './CreateToDo';
+import CreateTask from './CreateTask';
 import Home from './Home';
 import NavBar from './NavBar';
-import ToDoContainer from './ToDoContainer';
+import TaskContainer from './TaskContainer';
 
 
 const App = () => {
-    const [toDoList, setToDoList] = useState([
+    const [taskList, setTaskList] = useState([
         {id: 1,
         task: "Walk Dog", 
         category: "Pets",
@@ -34,8 +34,8 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path='/' element={ <Home /> }/>
-                <Route path='/view' element={ <ToDoContainer toDoList={toDoList} /> }/>
-                <Route path='/add' element={ <CreateToDo /> }/>
+                <Route path='/view' element={ <TaskContainer taskList={taskList} /> }/>
+                <Route path='/add' element={ <CreateTask /> }/>
             </Routes>
         </Router>
     )

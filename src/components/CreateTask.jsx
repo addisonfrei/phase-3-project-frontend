@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateToDo = () => {
+const CreateTask = () => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
@@ -12,6 +12,7 @@ const CreateToDo = () => {
     "completed": false
   });
   
+
   // Handles task and category changes
   function handleFormChange(e) {
     setFormData({...formData,
@@ -29,6 +30,8 @@ const CreateToDo = () => {
     e.preventDefault()
     console.log(formData)
   }
+// Iterate through Categories table to create dropdown list
+
 
   return (
     <div>
@@ -42,7 +45,7 @@ const CreateToDo = () => {
             <option value='home'>Home</option>
             <option value='pet'>Pet</option>
             <option value='vehicle'>Vehicle</option>
-            <option value='miscellaneous'>Miscellaneous</option>
+            <option value='work'>Work</option>
           </select>
           <br></br>
           <label><strong>Due By:</strong></label>
@@ -55,4 +58,4 @@ const CreateToDo = () => {
   )
 }
 
-export default CreateToDo
+export default CreateTask

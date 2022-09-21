@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.ToDo li {
+.Task li {
   margin: 0.5rem 0;
   padding: 0.75rem;
   display: grid;
