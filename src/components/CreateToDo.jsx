@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const CreateToDo = () => {
   // Make a controlled form with inputs adjusted below.  
   // State?  New state here or on App passed as prop?
-
+  const [ formData, setFormData ] = useState({
+    "task": "",
+    "category": ""
+  })
 
   return (
     <div>
