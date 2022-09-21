@@ -5,8 +5,15 @@ const CreateToDo = () => {
   // State?  New state here or on App passed as prop?
   const [ formData, setFormData ] = useState({
     "task": "",
-    "category": ""
+    "category": "home"
   })
+
+  function handleFormChange(e) {
+    setFormData({...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+  console.log("formData:", formData)
 
   return (
     <div>
@@ -14,9 +21,9 @@ const CreateToDo = () => {
       <form>
         <div>
           <label>Task:</label>
-          <input type='text' id='task'/>
+          <input type='text' id='task' name='task' value={formData.task} onChange={handleFormChange}/>
           <label>&nbsp;Category:</label>
-          <select id='category' name='category'>
+          <select id='category' name='category' onChange={handleFormChange}>
             <option value='home'>Home</option>
             <option value='pet'>Pet</option>
             <option value='vehicle'>Vehicle</option>
