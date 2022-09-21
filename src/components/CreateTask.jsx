@@ -35,7 +35,7 @@ const CreateTask = () => {
 
   return (
     <div>
-      <h1>Create a Task</h1>
+      <h1>Create a New Task</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='task'><strong>Task:</strong></label>

@@ -35,7 +35,7 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path='/' element={ <Home /> }/>
-                <Route path='/view' element={ <TaskContainer taskList={taskList} /> }/>
+                <Route path='/viewtasks' element={ <TaskContainer taskList={taskList} /> }/>
                 <Route path='/addtask' element={ <CreateTask /> }/>
                 <Route path='/addcategory' element={<CreateCategory />} />
             </Routes>
