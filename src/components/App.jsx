@@ -9,15 +9,19 @@ import ToDoContainer from './ToDoContainer';
 
 const App = () => {
     const [toDoList, setToDoList] = useState([
-        {task: "Walk Dog", 
+        {id: 1,
+        task: "Walk Dog", 
         category: "Pets",
         dueDate: "Wed Sep 21 2022", 
         completed: false},
-        {task: "Wash Dishes", 
+        {id: 2,
+        task: "Wash Dishes", 
         category: "Home",
         dueDate: "Wed Sep 21 2022", 
         completed: false}
     ])
+
+    
     //Fetch data from database
     // useEffect(() => {
     //     fetch('http://localhost:9292/')
@@ -30,7 +34,7 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path='/' element={ <Home /> }/>
-                <Route path='/view' element={ <ToDoContainer toDoList={toDoList}/> }/>
+                <Route path='/view' element={ <ToDoContainer toDoList={toDoList} /> }/>
                 <Route path='/add' element={ <CreateToDo /> }/>
             </Routes>
         </Router>

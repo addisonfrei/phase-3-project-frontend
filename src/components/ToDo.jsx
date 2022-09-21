@@ -1,14 +1,15 @@
 import React from 'react'
 
-const ToDo = ( { toDo } ) => {
+const ToDo = ( { toDo, onCheck } ) => {
   
-  // function will send Delete request to DB
+  // DELETE request to DB
   function handleDelete(e) {
-    console.log(toDo)
+    console.log(toDo.id)
   }
-  function handleCheck(e) {
+  // PATCH request to DB
+  function handleCheck() {
     console.log(toDo)
-    console.log("Checked")
+    
   }
   return (
     <li>

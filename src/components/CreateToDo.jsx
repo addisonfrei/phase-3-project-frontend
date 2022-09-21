@@ -24,7 +24,7 @@ const CreateToDo = () => {
       "dueDate": e.toDateString()
     })
   }
-  // Fetch data to DB 
+  // CREATE request to DB
   function handleSubmit(e) {
     e.preventDefault()
     console.log(formData)
