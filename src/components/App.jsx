@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import '../App.css';
+import CreateCategory from './CreateCategory';
 import CreateTask from './CreateTask';
 import Home from './Home';
 import NavBar from './NavBar';
@@ -35,7 +36,8 @@ const App = () => {
             <Routes>
                 <Route path='/' element={ <Home /> }/>
                 <Route path='/view' element={ <TaskContainer taskList={taskList} /> }/>
-                <Route path='/add' element={ <CreateTask /> }/>
+                <Route path='/addtask' element={ <CreateTask /> }/>
+                <Route path='/addcategory' element={<CreateCategory />} />
             </Routes>
         </Router>
     )
