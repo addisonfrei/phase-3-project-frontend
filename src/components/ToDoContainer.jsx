@@ -8,11 +8,19 @@ const ToDoContainer = ( { toDoList } ) => {
 
   // Add filter functionality to filter by all or specific category
 
-  
+
   return (
     <div>
       <h1>ToDoContainer</h1>
-      {toDo}
+      <ul className='ToDo'>
+        <li>
+          <span>Task</span>
+          <span>Category</span>
+          <span>Due By</span>
+          <span>Completed?</span>
+        </li>
+        {toDo}
+      </ul>
     </div>
   )
 }

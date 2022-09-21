@@ -8,7 +8,16 @@ import ToDoContainer from './ToDoContainer';
 
 
 const App = () => {
-    const [toDoList, setToDoList] = useState(["walk dog", "wash dishes"])
+    const [toDoList, setToDoList] = useState([
+        {task: "Walk Dog", 
+        category: "Pets",
+        dueDate: "Wed Sep 21 2022", 
+        completed: false},
+        {task: "Wash Dishes", 
+        category: "Home",
+        dueDate: "Wed Sep 21 2022", 
+        completed: false}
+    ])
     //Fetch data from database
     // useEffect(() => {
     //     fetch('http://localhost:9292/')

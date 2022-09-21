@@ -24,12 +24,16 @@ const CreateToDo = () => {
       "dueDate": e.toDateString()
     })
   }
-  console.log(formData)
+  
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log(formData)
+  }
 
   return (
     <div>
       <h2>Create a Task</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='task'>Task:</label>
           <input type='text' id='task' name='task' value={formData.task} autoFocus={true} onChange={handleFormChange}/>
