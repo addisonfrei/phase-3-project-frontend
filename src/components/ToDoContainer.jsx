@@ -14,10 +14,10 @@ const ToDoContainer = ( { toDoList } ) => {
       <h1>ToDoContainer</h1>
       <ul className='ToDo'>
         <li>
-          <span>Task</span>
-          <span>Category</span>
-          <span>Due By</span>
-          <span>Completed?</span>
+          <span><strong>Task</strong></span>
+          <span><strong>Category</strong></span>
+          <span><strong>Due By</strong></span>
+          <span><strong>Completed?</strong></span>
         </li>
         {toDo}
       </ul>
