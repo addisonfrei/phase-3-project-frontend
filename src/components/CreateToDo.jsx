@@ -24,7 +24,7 @@ const CreateToDo = () => {
       "dueDate": e.toDateString()
     })
   }
-  
+  // Fetch data to DB 
   function handleSubmit(e) {
     e.preventDefault()
     console.log(formData)
@@ -32,12 +32,12 @@ const CreateToDo = () => {
 
   return (
     <div>
-      <h2>Create a Task</h2>
+      <h1>Create a Task</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='task'>Task:</label>
+          <label htmlFor='task'><strong>Task:</strong></label>
           <input type='text' id='task' name='task' value={formData.task} autoFocus={true} onChange={handleFormChange}/>
-          <label>&nbsp;Category:</label>
+          <label>&nbsp;<strong>Category:</strong></label>
           <select id='category' name='category' onChange={handleFormChange}>
             <option value='home'>Home</option>
             <option value='pet'>Pet</option>
@@ -45,7 +45,7 @@ const CreateToDo = () => {
             <option value='miscellaneous'>Miscellaneous</option>
           </select>
           <br></br>
-          <label>Due By:</label>
+          <label><strong>Due By:</strong></label>
           <DatePicker selected={date} onSelect={setDate} onChange={handleCalendarChange}/>
         </div>
           <br></br>

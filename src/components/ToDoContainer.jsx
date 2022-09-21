@@ -11,13 +11,13 @@ const ToDoContainer = ( { toDoList } ) => {
 
   return (
     <div>
-      <h1>ToDoContainer</h1>
+      <h1>Task List</h1>
       <ul className='ToDo'>
         <li>
-          <span><strong>Task</strong></span>
-          <span><strong>Category</strong></span>
-          <span><strong>Due By</strong></span>
-          <span><strong>Completed?</strong></span>
+          <strong>Task</strong>
+          <strong>Category</strong>
+          <strong>Due By</strong>
+          <strong>Completed?</strong>
         </li>
         {toDo}
       </ul>

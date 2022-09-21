@@ -1,14 +1,18 @@
 import React from 'react'
 
 const ToDo = ( { toDo } ) => {
-  // Make a box to select when completed
+  
+  // function will send Delete request to DB
+  function handleDelete(e) {
+    console.log(e)
+  }
   return (
     <li>
       <span>{toDo.task}</span>
       <span>{toDo.category}</span>
-      <span>Due By: {toDo.dueDate}</span>
-      <input type='checkbox' />
-      <button>Delete</button>
+      <span>{toDo.dueDate}</span>
+      <input style={{marginRight: "100px"}} type='checkbox' />
+      <button onClick={handleDelete}>Delete</button>
     </li>
   )
 }
