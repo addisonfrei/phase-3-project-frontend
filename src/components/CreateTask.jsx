@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = () => {
+const CreateTask = ( { categories } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
@@ -11,7 +11,13 @@ const CreateTask = () => {
     "dueDate": date.toDateString(),
     "completed": false
   });
+  //Iterate through categories to create dropdown options
+  const categoryOption = categories.map((category) => 
+    <option key={category.id} value={category.name}>{category.name}</option>
+  )
   
+  
+  console.log("Category:", categoryOption)
 
   // Handles task and category changes
   function handleFormChange(e) {
@@ -30,7 +36,7 @@ const CreateTask = () => {
     e.preventDefault()
     console.log(formData)
   }
-// Iterate through Categories table to create dropdown list instead of hardcoded as is below
+
 
 
   return (
@@ -42,10 +48,7 @@ const CreateTask = () => {
           <input type='text' id='task' name='task' value={formData.task} autoFocus={true} onChange={handleFormChange}/>
           <label>&nbsp;<strong>Category:</strong></label>
           <select id='category' name='category' onChange={handleFormChange}>
-            <option value='home'>Home</option>
-            <option value='pet'>Pet</option>
-            <option value='vehicle'>Vehicle</option>
-            <option value='work'>Work</option>
+            {categoryOption}
           </select>
           <br></br>
           <label><strong>Due By:</strong></label>
@@ -59,3 +62,8 @@ const CreateTask = () => {
 }
 
 export default CreateTask
+
+{/* <option value='home'>Home</option>
+<option value='pet'>Pet</option>
+<option value='vehicle'>Vehicle</option>
+<option value='work'>Work</option> */}
