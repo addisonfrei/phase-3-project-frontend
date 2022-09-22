@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const CreateCategory = () => {
 
     const [ category, setCategory ] = useState([{
-        "category_name": ''
+        "name": ''
     }])
 
     function handleChange(e) {
@@ -23,7 +23,7 @@ const CreateCategory = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='category'><strong>Category:</strong></label>
-          <input type='text' id='categoryAdd' name='category_name' autoFocus={true} onChange={handleChange}/>
+          <input type='text' id='categoryAdd' name='name' autoFocus={true} onChange={handleChange}/>
         </div>
           <br></br>
           <input type="submit" value="Add Category" />
