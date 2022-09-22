@@ -34,15 +34,15 @@ const CreateTask = ( { categories } ) => {
   function handleSubmit(e) {
     e.preventDefault()
     console.log(formData)
-    fetch("http://localhost:9292/addtask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then(r => r.json())
-      .then((newTask) => console.log(newTask))
+    // fetch("http://localhost:9292/addtask", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then(r => r.json())
+    //   .then((newTask) => console.log(newTask))
   }
 
   return (
