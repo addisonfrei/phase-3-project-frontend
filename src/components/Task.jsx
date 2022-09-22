@@ -8,14 +8,15 @@ const Task = ( { task } ) => {
   }
   // PATCH request to DB
   function handleCheck() {
-    console.log(task)
-    
+    console.log(task) 
   }
+
+  // If completed === true then have box be checked
   return (
     <tr>
-      <td>{task.task}</td>
-      <td>{task.category}</td>
-      <td>{task.dueDate}</td>
+      <td>{task.description}</td>
+      <td>{task.category.name}</td>
+      <td>{task.due_by}</td>
       <td><input  type='checkbox' onClick={handleCheck}/></td>
       <td><button onClick={handleDelete}>Delete</button></td>
     </tr>

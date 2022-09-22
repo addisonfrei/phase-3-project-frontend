@@ -30,7 +30,7 @@ const CreateTask = () => {
     e.preventDefault()
     console.log(formData)
   }
-// Iterate through Categories table to create dropdown list
+// Iterate through Categories table to create dropdown list instead of hardcoded as is below
 
 
   return (
