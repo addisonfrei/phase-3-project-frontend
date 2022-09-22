@@ -6,18 +6,16 @@ const CreateTask = ( { categories } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
-    "task": "",
-    "category": "home",
-    "dueDate": date.toDateString(),
+    "description": "",
+    "category_id": "home",
+    "due_by": date.toDateString(),
     "completed": false
   });
   //Iterate through categories to create dropdown options
   const categoryOption = categories.map((category) => 
-    <option key={category.id} value={category.name}>{category.name}</option>
+    <option key={category.id} value={category.id}>{category.name}</option>
   )
-  
-  
-  console.log("Category:", categoryOption)
+  //console.log("Category:", categoryOption)
 
   // Handles task and category changes
   function handleFormChange(e) {
@@ -28,16 +26,24 @@ const CreateTask = ( { categories } ) => {
   // Handles calendar change due to event being the date.  No target included
   function handleCalendarChange(e) {
     setFormData({...formData,
-      "dueDate": e.toDateString()
+      "due_by": e.toDateString()
     })
   }
-  // CREATE request to DB
+
+  // POST request to DB
   function handleSubmit(e) {
     e.preventDefault()
     console.log(formData)
+    fetch("http://localhost:9292/addtask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(r => r.json())
+      .then((newTask) => console.log(newTask))
   }
-
-
 
   return (
     <div>
@@ -45,9 +51,9 @@ const CreateTask = ( { categories } ) => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='task'><strong>Task:</strong></label>
-          <input type='text' id='task' name='task' value={formData.task} autoFocus={true} onChange={handleFormChange}/>
+          <input type='text' id='task' name='description' value={formData.task} autoFocus={true} onChange={handleFormChange}/>
           <label>&nbsp;<strong>Category:</strong></label>
-          <select id='category' name='category' onChange={handleFormChange}>
+          <select id='category' name='category_id' onChange={handleFormChange}>
             {categoryOption}
           </select>
           <br></br>
@@ -62,8 +68,3 @@ const CreateTask = ( { categories } ) => {
 }
 
 export default CreateTask
-
-{/* <option value='home'>Home</option>
-<option value='pet'>Pet</option>
-<option value='vehicle'>Vehicle</option>
-<option value='work'>Work</option> */}
