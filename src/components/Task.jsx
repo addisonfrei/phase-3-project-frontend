@@ -17,7 +17,7 @@ const Task = ( { task } ) => {
       <td>{task.description}</td>
       <td>{task.category.name}</td>
       <td>{task.due_by}</td>
-      <td><input  type='checkbox' onClick={handleCheck}/></td>
+      <td><input type='checkbox' onClick={handleCheck} checked={task.completed ? true : false}/></td>
       <td><button onClick={handleDelete}>Delete</button></td>
     </tr>
   )
