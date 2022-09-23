@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = ( { categories } ) => {
+const CreateTask = ( { categoryOption } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
@@ -11,11 +11,6 @@ const CreateTask = ( { categories } ) => {
     "due_by": date.toDateString(),
     "completed": false
   });
-  //Iterate through categories to create dropdown options
-  const categoryOption = categories.map((category) => 
-    <option key={category.id} value={category.id}>{category.name}</option>
-  )
-  //console.log("Category:", categoryOption)
 
   // Handles task and category changes
   function handleFormChange(e) {
@@ -30,19 +25,19 @@ const CreateTask = ( { categories } ) => {
     })
   }
 
-  // POST request to DB
+  // CREATE request to DB
   function handleSubmit(e) {
     e.preventDefault()
     console.log(formData)
-    // fetch("http://localhost:9292/addtask", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then(r => r.json())
-    //   .then((newTask) => console.log(newTask))
+    fetch("http://localhost:9292/addtask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(r => r.json())
+      .then((newTask) => console.log(newTask))
   }
 
   return (

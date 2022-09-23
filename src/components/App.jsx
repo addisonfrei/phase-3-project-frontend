@@ -12,30 +12,33 @@ const App = () => {
     const [ taskList, setTaskList ] = useState([])
     const [ categories, setCategories ] = useState([])
     
-    //Fetch Task data from database
+    //READ request for tasks from database
     useEffect(() => {
         fetch('http://localhost:9292/tasks')
          .then(r => r.json())
          .then(setTaskList)
     }, [])
 
-    //Fetch Categories from database
+    //READ request for categories from database
     useEffect(() => {
         fetch('http://localhost:9292/categories')
          .then(r => r.json())
          .then(setCategories)
     }, [])
 
-    console.log("TaskList",taskList)
-    console.log("Categories:", categories)
+
+    //Iterate through categories to create dropdown options
+    const categoryOption = categories.map((category) => 
+        <option key={category.id} value={category.id}>{category.name}</option>
+    )
 
     return (
         <Router>
             <NavBar />
             <Routes>
                 <Route path='/' element={ <Home /> }/>
-                <Route path='/tasks' element={ <TaskContainer taskList={taskList}/> }/>
-                <Route path='/addtask' element={ <CreateTask categories={categories}/> }/>
+                <Route path='/tasks' element={ <TaskContainer taskList={taskList} categoryOption={categoryOption}/> }/>
+                <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption}/> }/>
                 <Route path='/addcategory' element={<CreateCategory />} />
             </Routes>
         </Router>

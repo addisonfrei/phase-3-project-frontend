@@ -6,7 +6,7 @@ const Task = ( { task } ) => {
   function handleDelete(e) {
     console.log(task.id)
   }
-  // PATCH request to DB
+  // UPDATE request to DB
   function handleCheck() {
     console.log(task) 
   }
