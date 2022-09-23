@@ -12,7 +12,19 @@ const Task = ( { task } ) => {
   }
   // UPDATE request to DB
   function handleCheck() {
-    console.log(task) 
+    console.log(task.id) 
+    console.log(task.completed)
+    fetch(`http://localhost:9292/task/${task.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "completed": ''
+      }),
+    })
+     .then(r => r.json())
+     .then(updatedObj => console.log(updatedObj))
   }
 
   
