@@ -6,8 +6,8 @@ const TaskContainer = ( { categoryOption } ) => {
 
   const [ taskList, setTaskList ] = useState([])
   const [ selectedCategory, setSelectedCategory ] = useState([0])
-  console.log(selectedCategory[0])
-  //READ request for tasks from database
+  
+  //READ request for tasks from database based on category filter
   useEffect(() => {
     fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
      .then(r => r.json())

@@ -30,7 +30,7 @@ const App = () => {
                 <Route path='/' element={ <Home /> }/>
                 <Route path='/tasks' element={ <TaskContainer categoryOption={categoryOption}/> }/>
                 <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption}/> }/>
-                <Route path='/addcategory' element={<CreateCategory />} />
+                <Route path='/addcategory' element={<CreateCategory categories={categories}/>} />
             </Routes>
         </Router>
     )

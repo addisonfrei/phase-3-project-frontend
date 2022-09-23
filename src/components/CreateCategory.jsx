@@ -1,15 +1,27 @@
 import React, { useState } from 'react'
 
-const CreateCategory = () => {
+const CreateCategory = ( { categories } ) => {
 
     const [ category, setCategory ] = useState({
         "name": ""
     })
+    console.log(categories)
+    // Rendering categories into table to allow for deletion
+    const individualCategory = categories.map((category) => (
+      <tr>
+        <td>{category.name}</td>
+        <td><button onClick={handleDelete}>X</button></td>
+    </tr>
+    ))
 
     function handleChange(e) {
         setCategory({...category,
             [e.target.name]: e.target.value
           })
+    }
+
+    function handleDelete() {
+      console.log("delete")
     }
     
     // CREATE request to DB
@@ -37,6 +49,19 @@ const CreateCategory = () => {
         <br></br>
         <input type="submit" value="Add Category" />
       </form>
+      <h1>Delete Category</h1>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {individualCategory}
+          </tbody>  
+        </table>
+      </div>
     </div>
   )
 }
