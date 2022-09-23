@@ -3,8 +3,12 @@ import React from 'react'
 const Task = ( { task } ) => {
   
   // DELETE request to DB
-  function handleDelete(e) {
-    console.log(task.id)
+  function handleDelete() {
+    fetch(`http://localhost:9292/task/${task.id}`, {
+        method: "DELETE"
+        })
+          .then(r => r.json())
+          .then((deletedTask) => console.log(deletedTask))
   }
   // UPDATE request to DB
   function handleCheck() {

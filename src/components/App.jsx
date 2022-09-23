@@ -18,6 +18,8 @@ const App = () => {
          .then(setCategories)
     }, [])
 
+    console.log(categories)
+
     //Iterate through categories to create dropdown options
     const categoryOption = categories.map((category) => 
         <option key={category.id} value={category.id}>{category.name}</option>
@@ -30,7 +32,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={ <Home /> }/>
                 <Route path='/tasks' element={ <TaskContainer categoryOption={categoryOption}/> }/>
-                <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption}/> }/>
+                <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption} categories={categories}/> }/>
                 <Route path='/modifycategory' element={<CreateCategory categories={categories}/>} />
             </Routes>
         </Router>

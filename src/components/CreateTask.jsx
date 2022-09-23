@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = ( { categoryOption } ) => {
+const CreateTask = ( { categoryOption, categories } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
     "description": "",
-    "category_id": "home",
+    "category_id": categories[0].id,
     "due_by": date.toDateString(),
     "completed": false
   });
+  console.log(formData)
 
   // Handles task and category changes
   function handleFormChange(e) {
