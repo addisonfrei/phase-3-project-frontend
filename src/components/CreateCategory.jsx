@@ -32,6 +32,9 @@ const CreateCategory = ( { categories } ) => {
         })
           .then(r => r.json())
           .then((newCat) => console.log(newCat))
+
+    // Reloads page without updating state
+    window.location.reload(false)
     }
   return (
     <div>

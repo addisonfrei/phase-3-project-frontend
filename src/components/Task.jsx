@@ -8,7 +8,9 @@ const Task = ( { task } ) => {
         method: "DELETE"
         })
           .then(r => r.json())
-          .then((deletedTask) => console.log(deletedTask))
+          .then((deletedTask) => console.log(deletedTask));
+    // Reloads page without updating state
+    window.location.reload(false)
   }
   // UPDATE request to DB
   function handleCheck() {
@@ -25,6 +27,8 @@ const Task = ( { task } ) => {
     })
      .then(r => r.json())
      .then(updatedObj => console.log(updatedObj))
+    // Reloads page without updating state
+     window.location.reload(false)
   }
 
   

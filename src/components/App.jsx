@@ -18,7 +18,6 @@ const App = () => {
          .then(setCategories)
     }, [])
 
-    console.log(categories)
 
     //Iterate through categories to create dropdown options
     const categoryOption = categories.map((category) => 
