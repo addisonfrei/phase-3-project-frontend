@@ -11,7 +11,7 @@ const Task = ( { task } ) => {
     console.log(task) 
   }
 
-  // If completed === true then have box be checked
+  
   return (
     <tr>
       <td>{task.description}</td>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import CatagoryList from './CatagoryList'
+
 
 const CreateCategory = ( { categories } ) => {
 
@@ -7,21 +9,14 @@ const CreateCategory = ( { categories } ) => {
     })
     console.log(categories)
     // Rendering categories into table to allow for deletion
-    const individualCategory = categories.map((category) => (
-      <tr>
-        <td>{category.name}</td>
-        <td><button onClick={handleDelete}>X</button></td>
-    </tr>
+    const individualCategory = categories.map((category, index) => (
+      <CatagoryList key={index} category={category}/>
     ))
 
     function handleChange(e) {
         setCategory({...category,
             [e.target.name]: e.target.value
           })
-    }
-
-    function handleDelete() {
-      console.log("delete")
     }
     
     // CREATE request to DB

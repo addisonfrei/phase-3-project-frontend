@@ -22,7 +22,8 @@ const App = () => {
     const categoryOption = categories.map((category) => 
         <option key={category.id} value={category.id}>{category.name}</option>
     )
-
+    
+    
     return (
         <Router>
             <NavBar />
@@ -30,7 +31,7 @@ const App = () => {
                 <Route path='/' element={ <Home /> }/>
                 <Route path='/tasks' element={ <TaskContainer categoryOption={categoryOption}/> }/>
                 <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption}/> }/>
-                <Route path='/addcategory' element={<CreateCategory categories={categories}/>} />
+                <Route path='/modifycategory' element={<CreateCategory categories={categories}/>} />
             </Routes>
         </Router>
     )
