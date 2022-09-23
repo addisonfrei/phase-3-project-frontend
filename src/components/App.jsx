@@ -9,23 +9,14 @@ import TaskContainer from './TaskContainer';
 
 
 const App = () => {
-    const [ taskList, setTaskList ] = useState([])
     const [ categories, setCategories ] = useState([])
     
-    //READ request for tasks from database
-    useEffect(() => {
-        fetch('http://localhost:9292/tasks')
-         .then(r => r.json())
-         .then(setTaskList)
-    }, [])
-
     //READ request for categories from database
     useEffect(() => {
         fetch('http://localhost:9292/categories')
          .then(r => r.json())
          .then(setCategories)
     }, [])
-
 
     //Iterate through categories to create dropdown options
     const categoryOption = categories.map((category) => 
@@ -37,7 +28,7 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path='/' element={ <Home /> }/>
-                <Route path='/tasks' element={ <TaskContainer taskList={taskList} categoryOption={categoryOption}/> }/>
+                <Route path='/tasks' element={ <TaskContainer categoryOption={categoryOption}/> }/>
                 <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption}/> }/>
                 <Route path='/addcategory' element={<CreateCategory />} />
             </Routes>

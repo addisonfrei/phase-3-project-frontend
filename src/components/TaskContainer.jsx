@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Task from './Task'
 import Filter from './Filter'
 
-const TaskContainer = ( { taskList, categoryOption } ) => {
+const TaskContainer = ( { categoryOption } ) => {
+
+  const [ taskList, setTaskList ] = useState([])
+  const [ selectedCategory, setSelectedCategory ] = useState([0])
+  console.log(selectedCategory[0])
+  //READ request for tasks from database
+  useEffect(() => {
+    fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
+     .then(r => r.json())
+     .then(tasks => setTaskList(tasks))
+  }, selectedCategory)
+  
+  // Iterate through all filtered tasks and create a Task componenet
   const task = taskList.map((task, index) => (
     <Task key={index} task={task} />
   ))
 
-  // Add filter functionality to filter by all or specific category
-
-
   return (
     <div>
-      <Filter categoryOption={categoryOption} />
+      <Filter categoryOption={categoryOption} setSelectedCategory={setSelectedCategory}/>
+      <br></br>
       <div>
         <table>
           <thead>
