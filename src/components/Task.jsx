@@ -22,9 +22,7 @@ const Task = ( { task, setTaskList } ) => {
       }),
     })
      .then(r => r.json())
-     .then(updatedObj => console.log(updatedObj))
-    // Reloads page without updating state
-     window.location.reload(false)
+     .then((updatedTasks) => setTaskList(updatedTasks))
   }
 
   

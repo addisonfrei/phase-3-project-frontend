@@ -11,7 +11,6 @@ const CreateTask = ( { categoryOption, categories } ) => {
     "due_by": date.toDateString(),
     "completed": false
   });
-  console.log(formData)
 
   // Handles task and category changes
   function handleFormChange(e) {
