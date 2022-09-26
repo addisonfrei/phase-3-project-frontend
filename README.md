@@ -12,4 +12,4 @@ An app that allows a user to add tasks to a To Do list and organize by category.
 *
 
 ## Roadmap
-* Bullet points of additional functionality to add at a later date
+* Additional functionality to add at a later date
