@@ -12,11 +12,11 @@ const TaskContainer = ( { categoryOption } ) => {
     fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
      .then(r => r.json())
      .then(tasks => setTaskList(tasks))
-  }, selectedCategory)
+  }, [selectedCategory, taskList])
   
   // Iterate through all filtered tasks and create a Task componenet
   const task = taskList.map((task, index) => (
-    <Task key={index} task={task} />
+    <Task key={index} task={task} setTaskList={setTaskList}/>
   ))
 
   return (

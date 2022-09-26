@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Task = ( { task } ) => {
+const Task = ( { task, setTaskList } ) => {
 
   // DELETE request to DB
   function handleDelete() {
@@ -8,9 +8,7 @@ const Task = ( { task } ) => {
         method: "DELETE"
         })
           .then(r => r.json())
-          .then((deletedTask) => console.log(deletedTask));
-    // Reloads page without updating state
-    window.location.reload(false)
+          .then((updatedTasks) => setTaskList(updatedTasks));
   }
   // UPDATE request to DB
   function handleCheck() {
