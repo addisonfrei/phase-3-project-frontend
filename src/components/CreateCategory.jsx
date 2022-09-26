@@ -10,7 +10,7 @@ const CreateCategory = ( { categories, setCategories } ) => {
     console.log(categories)
     // Rendering categories into table to allow for deletion
     const individualCategory = categories.map((category, index) => (
-      <CatagoryList key={index} category={category}/>
+      <CatagoryList key={index} category={category} setCategories={setCategories}/>
     ))
 
     function handleChange(e) {

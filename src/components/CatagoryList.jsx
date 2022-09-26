@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CatagoryList = ( { category } ) => {
+const CatagoryList = ( { category, setCategories } ) => {
     
     function handleDelete() {
       fetch(`http://localhost:9292/category/${category.id}`, {
@@ -11,11 +11,9 @@ const CatagoryList = ( { category } ) => {
               if (resp === "This category is assigned to a task.  Delete task before continuing.") {
                 alert(resp)
               } else {
-                console.log(resp)
+                setCategories(resp)
               }
             })
-      // Reloads page without updating state
-      window.location.reload(false)
     }
 
   return (
