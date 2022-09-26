@@ -39,16 +39,3 @@ const App = () => {
 }
 
 export default App
-
-
-  // Fake data before fetching from database
-    // {id: 1,
-    //     task: "Walk Dog", 
-    //     category: "pets",
-    //     dueDate: "Wed Sep 21 2022", 
-    //     completed: false},
-    //     {id: 2,
-    //     task: "Wash Dishes", 
-    //     category: "home",
-    //     dueDate: "Wed Sep 21 2022", 
-    //     completed: false}

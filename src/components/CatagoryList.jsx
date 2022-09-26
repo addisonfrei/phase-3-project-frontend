@@ -7,8 +7,13 @@ const CatagoryList = ( { category } ) => {
           method: "DELETE"
           })
             .then(r => r.json())
-            .then((deletedCategory) => console.log(deletedCategory))
-
+            .then((resp) => {
+              if (resp === "This category is assigned to a task.  Delete task before continuing.") {
+                alert(resp)
+              } else {
+                console.log(resp)
+              }
+            })
       // Reloads page without updating state
       window.location.reload(false)
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Task = ( { task } ) => {
-  
+
   // DELETE request to DB
   function handleDelete() {
     fetch(`http://localhost:9292/task/${task.id}`, {
@@ -14,8 +14,6 @@ const Task = ( { task } ) => {
   }
   // UPDATE request to DB
   function handleCheck() {
-    console.log(task.id) 
-    console.log(task.completed)
     fetch(`http://localhost:9292/task/${task.id}`, {
       method: "PATCH",
       headers: {
