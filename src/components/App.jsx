@@ -32,7 +32,7 @@ const App = () => {
                 <Route path='/' element={ <Home /> }/>
                 <Route path='/tasks' element={ <TaskContainer categoryOption={categoryOption}/> }/>
                 <Route path='/addtask' element={ <CreateTask categoryOption={categoryOption} categories={categories}/> }/>
-                <Route path='/modifycategory' element={<CreateCategory categories={categories}/>} />
+                <Route path='/modifycategory' element={<CreateCategory categories={categories} setCategories={setCategories}/>} />
             </Routes>
         </Router>
     )

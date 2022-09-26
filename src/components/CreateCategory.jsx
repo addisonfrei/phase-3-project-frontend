@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CatagoryList from './CatagoryList'
 
 
-const CreateCategory = ( { categories } ) => {
+const CreateCategory = ( { categories, setCategories } ) => {
 
     const [ category, setCategory ] = useState({
         "name": ""
@@ -31,10 +31,10 @@ const CreateCategory = ( { categories } ) => {
           body: JSON.stringify(category),
         })
           .then(r => r.json())
-          .then((newCat) => console.log(newCat))
+          .then((updatedCategories) => setCategories(updatedCategories))
 
     // Reloads page without updating state
-    window.location.reload(false)
+    //window.location.reload(false)
     }
   return (
     <div>
