@@ -12,7 +12,8 @@ const Home = () => {
         <p>This application allows you to create a task with: a description, category, and a due date.  All tasks can be viewed from the Viewed Task List link. A task can be marked as completed, or deleted, upon completion.  Categories can be added and removed as needed.</p>
       </div>
       <div align='center'>
-      <img src={picture} alt='to do list' className='w3-circle' height={600} width={750}/>
+        <img src={picture} alt='to do list' className='w3-circle' height={600} width={750}/>
+        <p>Picture Credit: Thomas Bormans <a href='https://unsplash.com/photos/pcpsVsyFp_s'>Unsplash</a></p>
       </div>
       
       

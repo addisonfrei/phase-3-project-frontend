@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
-    <div>
-        <ul>
-            <li><Link to='/'>Home</Link> </li>
-            <li><Link to='/tasks'>View Task List</Link> </li>
-            <li><Link to='/addtask'>Add Task</Link> </li>
-            <li><Link to='/modifycategory'>Modify Categories</Link></li>
-        </ul>
+    <div className='w3-bar w3-black'>
+      <Link to='/' className='w3-bar-item w3-button'>Home</Link> 
+      <Link to='/tasks' className='w3-bar-item w3-button'>View Task List</Link> 
+      <Link to='/addtask' className='w3-bar-item w3-button'>Add Task</Link> 
+      <Link to='/modifycategory' className='w3-bar-item w3-button'>Modify Categories</Link>
     </div>
   )
 }
