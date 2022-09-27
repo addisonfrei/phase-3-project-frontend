@@ -7,7 +7,7 @@ const TaskContainer = ( { categoryOption } ) => {
   const [ taskList, setTaskList ] = useState([])
   const [ selectedCategory, setSelectedCategory ] = useState([0])
   
-  //READ request for tasks from database based on category filter
+  //READ request for tasks from database based on category filter. Rerenders when category or task list is updated.
   useEffect(() => {
     fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
      .then(r => r.json())
@@ -26,7 +26,10 @@ const TaskContainer = ( { categoryOption } ) => {
       </div>
       <br></br>
       <div align='center'>
-        <Filter categoryOption={categoryOption} setSelectedCategory={setSelectedCategory}/>
+        <Filter 
+          categoryOption={categoryOption} 
+          setSelectedCategory={setSelectedCategory}
+        />
         <table>
           <thead>
             <tr>

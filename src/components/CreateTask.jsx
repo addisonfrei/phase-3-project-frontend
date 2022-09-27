@@ -28,7 +28,6 @@ const CreateTask = ( { categoryOption, categories } ) => {
   // CREATE request to DB
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(formData)
     fetch("http://localhost:9292/addtask", {
       method: "POST",
       headers: {
@@ -45,12 +44,12 @@ const CreateTask = ( { categoryOption, categories } ) => {
       "due_by": new Date().toDateString(),
       "completed": false
     })
+    // Adds message under button when submitted.  Disappears in 3 seconds
     const confirmation = document.getElementById('confirmation')
     confirmation.innerText = "Task Submitted Successfully"
     setTimeout(() => {
       confirmation.innerText = ""
     }, 3000)
-
   }
 
   return (

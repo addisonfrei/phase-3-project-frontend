@@ -1,10 +1,11 @@
 import React from 'react'
 
 const Filter = ( { categoryOption, setSelectedCategory } ) => {
-function handleChange(e) {
+
+  function handleChange(e) {
     console.log(e.target.value)
     setSelectedCategory([e.target.value])
-}
+  }
 
   return (
     <div>
