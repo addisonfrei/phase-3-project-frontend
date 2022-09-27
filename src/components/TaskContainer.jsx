@@ -21,9 +21,12 @@ const TaskContainer = ( { categoryOption } ) => {
 
   return (
     <div>
-      <Filter categoryOption={categoryOption} setSelectedCategory={setSelectedCategory}/>
+      <div className='w3-container w3-teal'>
+        <h1>Task List</h1>
+      </div>
       <br></br>
-      <div>
+      <div align='center'>
+        <Filter categoryOption={categoryOption} setSelectedCategory={setSelectedCategory}/>
         <table>
           <thead>
             <tr>

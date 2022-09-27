@@ -13,11 +13,8 @@ const Home = () => {
       </div>
       <div align='center'>
         <img src={picture} alt='to do list' className='w3-circle' height={600} width={750}/>
-        <p>Picture Credit: Thomas Bormans <a href='https://unsplash.com/photos/pcpsVsyFp_s'>Unsplash</a></p>
+        <p>Photo Credit: Thomas Bormans <a href='https://unsplash.com/photos/pcpsVsyFp_s'>Unsplash</a></p>
       </div>
-      
-      
-      
     </div>
   )
 }

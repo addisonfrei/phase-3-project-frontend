@@ -37,27 +37,44 @@ const CreateTask = ( { categoryOption, categories } ) => {
       body: JSON.stringify(formData),
     })
       .then(r => r.json())
-      .then((newTask) => console.log(newTask))
+      .then((newTask) => console.log(newTask));
+
+    setFormData({
+      "description": "",
+      "category_id": categories[0].id,
+      "due_by": new Date().toDateString(),
+      "completed": false
+    })
+    const confirmation = document.getElementById('confirmation')
+    confirmation.innerText = "Task Submitted Successfully"
+    setTimeout(() => {
+      confirmation.innerText = ""
+    }, 3000)
+
   }
 
   return (
     <div>
-      <h1>Create a New Task</h1>
-      <form onSubmit={handleSubmit}>
+      <div className='w3-container w3-teal'>
+        <h1>Create a New Task</h1>
+      </div>
+      <br></br>
+      <form onSubmit={handleSubmit} align='center'>
         <div>
           <label htmlFor='task'><strong>Task:</strong></label>
-          <input type='text' id='task' name='description' value={formData.task} autoFocus={true} onChange={handleFormChange}/>
+          <input type='text' id='task' name='description' value={formData.description} autoFocus={true} onChange={handleFormChange}/>
           <label>&nbsp;<strong>Category:</strong></label>
           <select id='category' name='category_id' onChange={handleFormChange}>
             {categoryOption}
           </select>
           <br></br>
           <label><strong>Due By:</strong></label>
-          <DatePicker selected={date} onSelect={setDate} onChange={handleCalendarChange}/>
+          <DatePicker inline  onSelect={setDate} onChange={handleCalendarChange} value={formData.due_by}/>
         </div>
           <br></br>
           <input type="submit" value="Add Task" />
       </form>
+      <p id='confirmation' align='center' className='w3-text-teal'></p>
     </div>
   )
 }

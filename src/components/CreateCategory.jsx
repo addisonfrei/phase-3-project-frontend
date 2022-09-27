@@ -38,8 +38,14 @@ const CreateCategory = ( { categories, setCategories } ) => {
     }
   return (
     <div>
-      <h1>Create a New Category</h1>
-      <form onSubmit={handleSubmit}>
+      <div className='w3-container w3-teal'>
+      <h1>Categories</h1>
+      </div>
+      <br/>
+      <div align='center'>
+        <h3>Create New Category</h3>
+      </div>
+      <form align='center' onSubmit={handleSubmit}>
         <div>
           <label htmlFor='category'><strong>Category:</strong></label>
           <input type='text' id='categoryAdd' name='name' autoFocus={true} onChange={handleChange}/>
@@ -47,8 +53,8 @@ const CreateCategory = ( { categories, setCategories } ) => {
         <br></br>
         <input type="submit" value="Add Category" />
       </form>
-      <h1>Delete Category</h1>
-      <div>
+      <div align='center'>
+        <h3>Delete Category</h3>
         <table>
           <thead>
             <tr>
