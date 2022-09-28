@@ -23,7 +23,6 @@ const CreateCategory = ( { categories, setCategories } ) => {
   // CREATE request to DB
   function handleSubmit(e) {
       e.preventDefault()
-      console.log(category)
       fetch("http://localhost:9292/addcategory", {
         method: "POST",
         headers: {

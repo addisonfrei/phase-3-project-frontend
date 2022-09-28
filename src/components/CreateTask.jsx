@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = ( { categoryOption, categories } ) => {
+const CreateTask = ( { categoryOption, categories, setTaskList } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
@@ -36,7 +36,7 @@ const CreateTask = ( { categoryOption, categories } ) => {
       body: JSON.stringify(formData),
     })
       .then(r => r.json())
-      .then((newTask) => console.log(newTask));
+      .then((updatedTasks) => setTaskList(updatedTasks));
 
     setFormData({
       "description": "",
@@ -54,10 +54,7 @@ const CreateTask = ( { categoryOption, categories } ) => {
 
   return (
     <div>
-      <div className='w3-container w3-teal'>
-        <h1>Create a New Task</h1>
-      </div>
-      <br></br>
+      <h3>Create a New Task</h3>
       <form onSubmit={handleSubmit} align='center'>
         <div>
           <label htmlFor='task'><strong>Task:</strong></label>
