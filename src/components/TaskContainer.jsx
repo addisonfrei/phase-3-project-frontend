@@ -26,9 +26,6 @@ const TaskContainer = ( { categories } ) => {
      .then(tasks => setTaskList(tasks))
   }, [taskList.length, selectedCategory])
   
-  
-  
-
   return (
     <div>
       <div className='w3-container w3-teal'>
