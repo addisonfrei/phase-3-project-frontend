@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Task = ( { task, setTaskList } ) => {
+const Task = ( { task, onDelete, onUpdate } ) => {
 
   // DELETE request to DB
   function handleDelete() {
@@ -8,7 +8,7 @@ const Task = ( { task, setTaskList } ) => {
         method: "DELETE"
         })
           .then(r => r.json())
-          .then((updatedTasks) => setTaskList(updatedTasks));
+          .then((updatedTask) => onDelete(updatedTask));
   }
   // UPDATE request to DB
   function handleCheck() {
@@ -22,10 +22,9 @@ const Task = ( { task, setTaskList } ) => {
       }),
     })
      .then(r => r.json())
-     .then((updatedTasks) => setTaskList(updatedTasks))
+     .then((updatedTask) => onUpdate(updatedTask))
   }
 
-  
   return (
     <tr>
       <td>{task.description}</td>

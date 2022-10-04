@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = ( { categoryOption, categories, setTaskList } ) => {
+const CreateTask = ( { categoryOption, categories, taskList, setTaskList, selectedCategory } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
@@ -11,7 +11,6 @@ const CreateTask = ( { categoryOption, categories, setTaskList } ) => {
     "due_by": date,
     "completed": false
   });
-  //console.log("formData:", formData)
   // Handles task and category changes
   function handleFormChange(e) {
     setFormData({...formData,
@@ -25,14 +24,14 @@ const CreateTask = ( { categoryOption, categories, setTaskList } ) => {
     })
     setDate(e)
   }
-  
+
   // CREATE request to DB
   function handleSubmit(e) {
     e.preventDefault()
     if (formData.category_id === 0) {
       formData.category_id = categories[0].id
       }
-    fetch("http://localhost:9292/addtask", {
+    fetch(`http://localhost:9292/${selectedCategory[0]}/addtask`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

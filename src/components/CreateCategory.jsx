@@ -32,6 +32,8 @@ const CreateCategory = ( { categories, setCategories } ) => {
       })
         .then(r => r.json())
         .then((updatedCategories) => setCategories(updatedCategories))
+
+      category.name = ""
   }
   
   return (
@@ -45,7 +47,7 @@ const CreateCategory = ( { categories, setCategories } ) => {
           <h3 align='center'>Create New Category</h3>
           <form align='center' onSubmit={handleSubmit}>
             <label htmlFor='category'><strong>Category:</strong></label>
-            <input type='text' id='categoryAdd' name='name' autoFocus={true} onChange={handleChange}/>
+            <input type='text' id='categoryAdd' value={category.name} name='name' autoFocus={true} onChange={handleChange}/>
             <br/>
             <br/>
             <input type="submit" value="Add Category" />

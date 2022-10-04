@@ -7,7 +7,7 @@ const TaskContainer = ( { categories } ) => {
 
   const [ taskList, setTaskList ] = useState([])
   const [ selectedCategory, setSelectedCategory ] = useState([0])
-
+  //console.log("TaskList Length:",taskList.length)
   //Iterate through categories to create dropdown options
   const categoryOption = categories.map((category) => 
     <option key={category.id} value={category.id}>{category.name}</option>
@@ -15,17 +15,26 @@ const TaskContainer = ( { categories } ) => {
 
   // Iterate through all filtered tasks and create a Task componenet
   const task = taskList.map((task, index) => (
-    <Task key={index} task={task} setTaskList={setTaskList}/>
+    <Task key={index} task={task} onDelete={handleDelete} onUpdate={handleUpdate}/>
   ))
   
   // READ request for tasks from database based on category filter.
-  // Rerenders when category or task list is updated.
-  useEffect(() => {
+  // Rerenders when category is updated.
+  useEffect( () => {
     fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
      .then(r => r.json())
-     .then(tasks => setTaskList(tasks))
-  }, [taskList.length, selectedCategory])
+     .then(tasks =>  setTaskList(tasks))
+  }, [selectedCategory])
+
+  function handleDelete(deletedTask) {
+    const updatedTask = taskList.filter((task) => task.id !== deletedTask.id)
+    setTaskList(updatedTask)
+  }
   
+  function handleUpdate(updatedTask) {
+    const updatedTasks = taskList.map((task) => task.id === updatedTask.id ? updatedTask : task);
+    setTaskList(updatedTasks)
+  }
   return (
     <div>
       <div className='w3-container w3-teal'>
@@ -37,7 +46,9 @@ const TaskContainer = ( { categories } ) => {
         <CreateTask 
           categoryOption={categoryOption} 
           categories={categories}
+          taskList={taskList}
           setTaskList={setTaskList}
+          selectedCategory={selectedCategory}
         />
         </div>
         <div align='center' className='w3-col l6'>
