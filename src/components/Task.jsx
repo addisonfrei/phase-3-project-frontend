@@ -8,7 +8,7 @@ const Task = ( { task, onDelete, onUpdate } ) => {
         method: "DELETE"
         })
           .then(r => r.json())
-          .then((updatedTask) => onDelete(updatedTask));
+          .then((deletedTask) => onDelete(deletedTask));
   }
   // UPDATE request to DB
   function handleCheck() {

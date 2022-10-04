@@ -26,11 +26,13 @@ const TaskContainer = ( { categories } ) => {
      .then(tasks =>  setTaskList(tasks))
   }, [selectedCategory])
 
+  // Function updates taskList after delete from Task component
   function handleDelete(deletedTask) {
     const updatedTask = taskList.filter((task) => task.id !== deletedTask.id)
     setTaskList(updatedTask)
   }
   
+  // Function updates taskList after patch request from Task component
   function handleUpdate(updatedTask) {
     const updatedTasks = taskList.map((task) => task.id === updatedTask.id ? updatedTask : task);
     setTaskList(updatedTasks)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = ( { categoryOption, categories, taskList, setTaskList, selectedCategory } ) => {
+const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory } ) => {
   
   const [ date, setDate ] = useState(new Date());
   const [ formData, setFormData ] = useState({
