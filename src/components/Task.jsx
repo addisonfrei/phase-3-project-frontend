@@ -4,7 +4,7 @@ const Task = ( { task, selectedCategory, setTaskList } ) => {
 
   // DELETE request to DB
   function handleDelete() {
-    fetch(`http://localhost:9292/task/${selectedCategory[0]}/${task.id}`, {
+    fetch(`http://localhost:9292/tasks/${selectedCategory[0]}/${task.id}`, {
         method: "DELETE"
         })
           .then(r => r.json())
@@ -12,7 +12,7 @@ const Task = ( { task, selectedCategory, setTaskList } ) => {
   }
   // UPDATE request to DB
   function handleCheck() {
-    fetch(`http://localhost:9292/task/${selectedCategory[0]}/${task.id}`, {
+    fetch(`http://localhost:9292/tasks/${selectedCategory[0]}/${task.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

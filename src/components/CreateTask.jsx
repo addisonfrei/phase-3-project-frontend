@@ -11,6 +11,7 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
     "due_by": date,
     "completed": false
   });
+  
   // Handles task and category changes
   function handleFormChange(e) {
     setFormData({...formData,
@@ -28,6 +29,7 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
   // CREATE request to DB
   function handleSubmit(e) {
     e.preventDefault()
+    // category_id initially 0 due to categories[0].id not being available on load.  On submit this will change id to first category if it not changed
     if (formData.category_id === 0) {
       formData.category_id = categories[0].id
       }
@@ -40,7 +42,7 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
     })
       .then(r => r.json())
       .then((updatedTasks) => setTaskList(updatedTasks));
-    
+    // Clear Task input
     formData.description = ""
     // Adds message under button when submitted.  Disappears in 3 seconds
     const confirmation = document.getElementById('confirmation')

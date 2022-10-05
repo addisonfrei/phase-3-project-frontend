@@ -7,7 +7,7 @@ const TaskContainer = ( { categories } ) => {
 
   const [ taskList, setTaskList ] = useState([])
   const [ selectedCategory, setSelectedCategory ] = useState([0])
-  //console.log("TaskList Length:",taskList.length)
+  
   //Iterate through categories to create dropdown options
   const categoryOption = categories.map((category) => 
     <option key={category.id} value={category.id}>{category.name}</option>
@@ -19,7 +19,7 @@ const TaskContainer = ( { categories } ) => {
   ))
   
   // READ request for tasks from database based on category filter.
-  // Rerenders when category is updated.
+  // Rerenders when category filter is changed.
   useEffect( () => {
     fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
      .then(r => r.json())

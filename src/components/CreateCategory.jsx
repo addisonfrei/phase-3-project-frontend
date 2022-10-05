@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import CatagoryList from './CatagoryList'
 
-
 const CreateCategory = ( { categories, setCategories } ) => {
   // State for adding a category
   const [ category, setCategory ] = useState({
       "name": ""
   })
-  
-  // Rendering categories into table to allow for deletion
-  const individualCategory = categories.map((category, index) => (
-    <CatagoryList key={index} category={category} setCategories={setCategories}/>
-  ))
 
   // Set state for adding category
   function handleChange(e) {
@@ -35,6 +29,11 @@ const CreateCategory = ( { categories, setCategories } ) => {
 
       category.name = ""
   }
+
+  // Rendering categories into table to allow for deletion
+  const individualCategory = categories.map((category, index) => (
+    <CatagoryList key={index} category={category} setCategories={setCategories}/>
+  ))
   
   return (
     <div>
@@ -59,6 +58,7 @@ const CreateCategory = ( { categories, setCategories } ) => {
             <thead>
               <tr>
                 <th>Category</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>

@@ -18,8 +18,8 @@ const CatagoryList = ( { category, setCategories } ) => {
 
   return (
     <tr>
-        <td>{category.name}</td>
-        <td><button onClick={handleDelete}>X</button></td>
+      <td>{category.name}</td>
+      <td><button onClick={handleDelete}>X</button></td>
     </tr>
   )
 }
