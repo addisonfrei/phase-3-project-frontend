@@ -15,7 +15,7 @@ const TaskContainer = ( { categories } ) => {
 
   // Iterate through all filtered tasks and create a Task componenet
   const task = taskList.map((task, index) => (
-    <Task key={index} task={task} onDelete={handleDelete} onUpdate={handleUpdate}/>
+    <Task key={index} task={task} selectedCategory={selectedCategory} setTaskList={setTaskList}/>
   ))
   
   // READ request for tasks from database based on category filter.
@@ -25,18 +25,7 @@ const TaskContainer = ( { categories } ) => {
      .then(r => r.json())
      .then(tasks =>  setTaskList(tasks))
   }, [selectedCategory])
-
-  // Function updates taskList after delete from Task component
-  function handleDelete(deletedTask) {
-    const updatedTask = taskList.filter((task) => task.id !== deletedTask.id)
-    setTaskList(updatedTask)
-  }
   
-  // Function updates taskList after patch request from Task component
-  function handleUpdate(updatedTask) {
-    const updatedTasks = taskList.map((task) => task.id === updatedTask.id ? updatedTask : task);
-    setTaskList(updatedTasks)
-  }
   return (
     <div>
       <div className='w3-container w3-teal'>
