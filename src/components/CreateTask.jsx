@@ -44,12 +44,6 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
       .then((updatedTasks) => setTaskList(updatedTasks));
     // Clear Task input
     formData.description = ""
-    // Adds message under button when submitted.  Disappears in 3 seconds
-    const confirmation = document.getElementById('confirmation')
-    confirmation.innerText = "Task Submitted Successfully"
-    setTimeout(() => {
-      confirmation.innerText = ""
-    }, 3000)
   }
 
   return (
@@ -70,7 +64,6 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
           <br></br>
           <input type="submit" value="Add Task" />
       </form>
-      <p id='confirmation' align='center' className='w3-text-teal'></p>
     </div>
   )
 }
