@@ -6,25 +6,24 @@ import CreateTask from './CreateTask'
 const TaskContainer = ( { categories } ) => {
 
   const [ taskList, setTaskList ] = useState([])
-  const [ selectedCategory, setSelectedCategory ] = useState([0])
+  const [filteredCategory, setFilteredCategory] = useState("")
   
   //Iterate through categories to create dropdown options
   const categoryOption = categories.map((category) => 
-    <option key={category.id} value={category.id}>{category.name}</option>
+    <option key={category.id} value={category.id} name={category.name}>{category.name}</option>
   )
 
-  // Iterate through all filtered tasks and create a Task componenet
-  const task = taskList.map((task, index) => (
-    <Task key={index} task={task} selectedCategory={selectedCategory} setTaskList={setTaskList}/>
-  ))
-  
-  // READ request for tasks from database based on category filter.
-  // Rerenders when category filter is changed.
+  // READ request for tasks
   useEffect( () => {
-    fetch(`http://localhost:9292/tasks/${selectedCategory[0]}`)
+    fetch('http://localhost:9292/tasks')
      .then(r => r.json())
      .then(tasks =>  setTaskList(tasks))
-  }, [selectedCategory])
+  }, [])
+
+  // Iterate through all tasks and create a Task componenet
+  const task = taskList.map((task, index) => (
+    <Task key={index} task={task} setTaskList={setTaskList} setFilteredCategory={setFilteredCategory}/>
+  ))
   
   return (
     <div>
@@ -37,16 +36,17 @@ const TaskContainer = ( { categories } ) => {
         <CreateTask 
           categoryOption={categoryOption} 
           categories={categories}
-          taskList={taskList}
           setTaskList={setTaskList}
-          selectedCategory={selectedCategory}
+          setFilteredCategory={setFilteredCategory}
         />
         </div>
         <div align='center' className='w3-col l6'>
           <br/>
           <Filter 
-            categoryOption={categoryOption} 
-            setSelectedCategory={setSelectedCategory}
+            categoryOption={categoryOption}
+            setTaskList={setTaskList}
+            filteredCategory={filteredCategory}
+            setFilteredCategory={setFilteredCategory}
           />
           <table>
             <thead>

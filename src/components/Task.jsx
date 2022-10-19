@@ -1,18 +1,19 @@
 import React from 'react'
 
-const Task = ( { task, selectedCategory, setTaskList } ) => {
+const Task = ( { task, setTaskList, setFilteredCategory } ) => {
 
   // DELETE request to DB
   function handleDelete() {
-    fetch(`http://localhost:9292/tasks/${selectedCategory[0]}/${task.id}`, {
+    fetch(`http://localhost:9292/tasks/${task.id}`, {
         method: "DELETE"
         })
           .then(r => r.json())
           .then((updatedTasks) => setTaskList(updatedTasks));
+    setFilteredCategory("")
   }
   // UPDATE request to DB
   function handleCheck() {
-    fetch(`http://localhost:9292/tasks/${selectedCategory[0]}/${task.id}`, {
+    fetch(`http://localhost:9292/tasks/${task.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -23,6 +24,7 @@ const Task = ( { task, selectedCategory, setTaskList } ) => {
     })
      .then(r => r.json())
      .then((updatedTasks) => setTaskList(updatedTasks))
+     setFilteredCategory("")
   }
   
   return (

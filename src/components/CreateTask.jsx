@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory } ) => {
+const CreateTask = ( { categoryOption, categories, setTaskList, setFilteredCategory } ) => {
   
   const [ date, setDate ] = useState(new Date());
+  const [selectedCategory, setSelectedCategory] = useState("")
   const [ formData, setFormData ] = useState({
     "description": "",
     "category_id": 0,
@@ -14,6 +15,7 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
   
   // Handles task and category changes
   function handleFormChange(e) {
+    setSelectedCategory(e.target.value)
     setFormData({...formData,
       [e.target.name]: e.target.value
     })
@@ -33,7 +35,7 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
     if (formData.category_id === 0) {
       formData.category_id = categories[0].id
       }
-    fetch(`http://localhost:9292/${selectedCategory[0]}/addtask`, {
+    fetch(`http://localhost:9292/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,6 +46,8 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
       .then((updatedTasks) => setTaskList(updatedTasks));
     // Clear Task input
     formData.description = ""
+    setSelectedCategory("")
+    setFilteredCategory("")
   }
 
   return (
@@ -54,7 +58,8 @@ const CreateTask = ( { categoryOption, categories, setTaskList, selectedCategory
           <label htmlFor='task'><strong>Task:</strong></label>
           <input type='text' id='task' name='description' value={formData.description} autoFocus={true} onChange={handleFormChange}/>
           <label>&nbsp;<strong>Category:</strong></label>
-          <select id='category' name='category_id' onChange={handleFormChange}>
+          <select id='category' name='category_id' value={selectedCategory} onChange={handleFormChange}>
+            <option>Select</option>
             {categoryOption}
           </select>
           <br></br>

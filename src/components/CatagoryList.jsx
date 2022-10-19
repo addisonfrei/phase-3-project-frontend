@@ -3,7 +3,7 @@ import React from 'react'
 const CatagoryList = ( { category, setCategories } ) => {
     
   function handleDelete() {
-    fetch(`http://localhost:9292/category/${category.id}`, {
+    fetch(`http://localhost:9292/categories/${category.id}`, {
         method: "DELETE"
         })
           .then(r => r.json())
